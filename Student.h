@@ -8,18 +8,6 @@
 
 using namespace std; 
 
-struct studentName {
-	string name;
-	string surname;
-	string patronumic;
-};
-
-struct date {
-	unsigned int day;
-	unsigned int month;
-	unsigned int year;
-};
-
 
 
 class Date {

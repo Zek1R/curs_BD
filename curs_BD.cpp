@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <Windows.h>
 #include <string>
+#include "Student.h"
 
 using namespace std;
 
@@ -8,12 +9,10 @@ int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-
-    string s;
-    cin >> s;
-    cout << "Hello World!\n";
-   
-    cout << s;
+    
+    date Date;
+    
+    Date = 
     
     return 0;
 }
