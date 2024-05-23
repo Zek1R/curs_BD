@@ -100,7 +100,7 @@ public:
 	}
 
 	void SetName() {
-		cout << "Введите {Имя Фамилию Отчество} студента (через пробел)\n >> ";
+		cout << "Введите {Имя Фамилию Отчество} студента (через пробел)\n>> ";
 		cin >> this->name;
 		cin >> this->surname;
 		cin >> this->patronymic;
