@@ -8,8 +8,6 @@
 
 using namespace std; 
 
-
-
 class Date {
 private:
 	unsigned int day;
@@ -60,12 +58,19 @@ private:
 	}
 
 public:
-	Date(unsigned int d, unsigned int m, unsigned int y) :
-		day = d;
-		month = m;
+	Date() {
+	
+			cout << "¬ведите дату рождени€ через пробел >> ";
+			cin >> day;
+			cin >> month;
+			cin >> year;
+	}
+
+	Date(unsigned int d, unsigned int m, unsigned int y){
+		cin >> d;
+		cin >> m;
 		year = y;
-	{
-		IsValid();
+		ValidDate();
 	} 
 
 	unsigned int GetDays() const {
@@ -79,16 +84,10 @@ public:
 	};
 	
 	void PrintDate() {
-		cout << this->day << this->month << this->year << endl;
+		cout << this->day << '.' << this->month << '.' << this->year << endl;
 	}
 };
 
 
-// class Student {
-// private:
-	
-// public:
-	// Student(); //конструктор
-// };
 
 #endif // !STUDENT_H

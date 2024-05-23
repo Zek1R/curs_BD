@@ -12,7 +12,9 @@ int main()
     
     Date birthDate;
     
-    birthDate = 
-    
+ 
+    birthDate.PrintDate();
+
+
     return 0;
 }
