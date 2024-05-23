@@ -14,7 +14,7 @@ private:
 	unsigned int month;
 	unsigned int year;
 
-	bool ValidDate() const {
+	bool ValidDate(unsigned int day, unsigned int  month, unsigned int year) const {
 
 		bool IsValid = false;
 
@@ -66,9 +66,15 @@ public:
 
 	void SetDate(){
 		cout << "Введите дату рождения (через пробел)\n>> ";
-		cin >> this->day;
-		cin >> this->month;
-		cin >> this->year;
+		unsigned int d, m, y;
+		cin >> d;
+		cin >> m;
+		cin >> y;
+
+		bool v = false;
+		while (v == false) {
+			v = ValidDate(d, m, y);
+		}
 	}
 
 	unsigned int GetDays() const {
@@ -151,15 +157,16 @@ public:
 		cin >> sex;
 	}
 
-	void SetStudent() {
-		studentName.SetName();
-	}
 
 	void PrintStudent() const {
+		cout << endl;
 		studentName.PrintName();
 		birthDate.PrintDate();
-		cout << "Институт >> " << faculty << " Кафедра >> " << cathedra << endl;
-		cout << "Группа >> " << group << " Номер зачётки >> " << studentID << " Пол >> " << sex << endl;
+		cout << "Институт - " << faculty << endl;
+		cout << "Кафедра - " << cathedra << endl;
+		cout << "Группа - " << group << endl;
+		cout << "Номер зачётки - " << studentID << endl;
+		cout << "Пол - " << sex << endl;
 		
 	}
 

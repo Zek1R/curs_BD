@@ -13,7 +13,7 @@ int main()
     
     Student student1;
 
-    student1.SetStudent();
+ 
     student1.PrintStudent();
     return 0;
 }
