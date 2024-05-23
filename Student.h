@@ -59,12 +59,12 @@ private:
 
 public:
 	Date() {
-		day;
-		month;
-		year;
-	}
+		day = 0;
+		month = 0;
+		year = 0;
+	};
 
-	void setDate(){
+	void SetDate(){
 		cout << "Введите дату рождения (через пробел)\n>> ";
 		cin >> this->day;
 		cin >> this->month;
@@ -82,7 +82,7 @@ public:
 	};
 	
 	void PrintDate() const {
-		cout << this->day << '.' << this->month << '.' << this->year << endl;
+		cout << this->day << '.' << this->month << '.' << this->year << endl; // потом удалить, когда будет интерфейс
 	}
 };
 
@@ -99,15 +99,15 @@ public:
 		patronymic = "";
 	}
 
-	void setName() {
-		cout << "Введите Имя Фамилию Отчество студента через пробел\n>> ";
+	void SetName() {
+		cout << "Введите {Имя Фамилию Отчество} студента (через пробел)\n >> ";
 		cin >> this->name;
 		cin >> this->surname;
 		cin >> this->patronymic;
 	}
 
 	void PrintName() const {
-		cout << this->name << ' ' << this->surname << ' ' << this->patronymic << endl;
+		cout << this->name << ' ' << this->surname << ' ' << this->patronymic << endl; // потом удалить, когда сделаю интерфейс
 	}
 
 	string GetName() const {
@@ -121,5 +121,48 @@ public:
 	};
 };
 
+
+class Student {
+private:
+	Name studentName;
+	Date birthDate;
+	unsigned int entryYear;
+	string faculty;
+	string cathedra;
+	string group;
+	string studentID;
+	char sex;
+
+public:
+	Student() {
+		studentName.SetName();
+		birthDate.SetDate();
+		cout << "Введите год поступления\n>> ";
+		cin >> entryYear;
+		cout << "Введите институт\n>> ";
+		cin >> faculty;
+		cout << "Введите кафедру (Например: КБ-2)\n>> ";
+		cin >> cathedra;
+		cout << "Введите группу (Например: БИСО-01-23)\n>> ";
+		cin >> group;
+		cout << "Введите номер зачётной книжки\n>> ";
+		cin >> studentID;;
+		cout << "Введите пол (М / Ж)\n>> ";
+		cin >> sex;
+	}
+
+	void SetStudent() {
+		studentName.SetName();
+	}
+
+	void PrintStudent() const {
+		studentName.PrintName();
+		birthDate.PrintDate();
+		cout << "Институт >> " << faculty << " Кафедра >> " << cathedra << endl;
+		cout << "Группа >> " << group << " Номер зачётки >> " << studentID << " Пол >> " << sex << endl;
+		
+	}
+
+};
 
 #endif // !STUDENT_H

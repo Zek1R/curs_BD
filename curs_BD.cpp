@@ -10,11 +10,10 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     
-    Date birthDate;
-    Name studentName;
-    studentName.setName();
-    birthDate.setDate();
-    studentName.PrintName();
-    birthDate.PrintDate();
+    
+    Student student1;
+
+    student1.SetStudent();
+    student1.PrintStudent();
     return 0;
 }
