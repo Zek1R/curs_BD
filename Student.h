@@ -65,14 +65,16 @@ public:
 	};
 
 	void SetDate(){
-		cout << "Введите дату рождения (через пробел)\n>> ";
 		unsigned int d, m, y;
 		cin >> d;
 		cin >> m;
 		cin >> y;
-
 		bool v = false;
 		while (v == false) {
+			cout << "Введите дату рождения (через пробел)\n>> ";
+			cin >> d;
+			cin >> m;
+			cin >> y;
 			v = ValidDate(d, m, y);
 		}
 	}
