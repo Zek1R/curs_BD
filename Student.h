@@ -66,10 +66,8 @@ public:
 
 	void SetDate(){
 		unsigned int d, m, y;
-		cin >> d;
-		cin >> m;
-		cin >> y;
 		bool v = false;
+
 		while (v == false) {
 			cout << "Введите дату рождения (через пробел)\n>> ";
 			cin >> d;
@@ -77,6 +75,10 @@ public:
 			cin >> y;
 			v = ValidDate(d, m, y);
 		}
+
+		day = d;
+		month = m;
+		year = y;
 	}
 
 	unsigned int GetDays() const {
