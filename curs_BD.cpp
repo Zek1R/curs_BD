@@ -12,7 +12,7 @@ int main()
     string s;
     cin >> s;
     cout << "Hello World!\n";
-    cout << "Бляяяяяя\n";
+   
     cout << s;
     
     return 0;
