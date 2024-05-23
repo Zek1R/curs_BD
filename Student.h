@@ -16,7 +16,7 @@ private:
 	unsigned int month;
 	unsigned int year;
 
-	bool ValidDate(date d) {
+	bool ValidDate() {
 
 		bool IsValid = false;
 
@@ -61,9 +61,9 @@ private:
 
 public:
 	Date(unsigned int d, unsigned int m, unsigned int y) :
-		day(d),
-		month(m),
-		year(y)
+		day = d;
+		month = m;
+		year = y;
 	{
 		IsValid();
 	} 

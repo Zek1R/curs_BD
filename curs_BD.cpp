@@ -10,9 +10,9 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     
-    date Date;
+    Date birthDate;
     
-    Date = 
+    birthDate = 
     
     return 0;
 }
