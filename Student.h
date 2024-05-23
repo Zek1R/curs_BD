@@ -14,7 +14,7 @@ private:
 	unsigned int month;
 	unsigned int year;
 
-	bool ValidDate() {
+	bool ValidDate() const {
 
 		bool IsValid = false;
 
@@ -59,19 +59,17 @@ private:
 
 public:
 	Date() {
-	
-			cout << "Введите дату рождения через пробел >> ";
-			cin >> day;
-			cin >> month;
-			cin >> year;
+		day;
+		month;
+		year;
 	}
 
-	Date(unsigned int d, unsigned int m, unsigned int y){
-		cin >> d;
-		cin >> m;
-		year = y;
-		ValidDate();
-	} 
+	void setDate(){
+		cout << "Введите дату рождения (через пробел)\n>> ";
+		cin >> day;
+		cin >> month;
+		cin >> year;
+	}
 
 	unsigned int GetDays() const {
 		return this->day;
@@ -83,11 +81,45 @@ public:
 		return this->year;
 	};
 	
-	void PrintDate() {
+	void PrintDate() const {
 		cout << this->day << '.' << this->month << '.' << this->year << endl;
 	}
 };
 
+class Name {
+private:
+	string name;
+	string surname;
+	string patronymic;
+
+public:
+	Name() {
+		name = "";
+		surname = "";
+		patronymic = "";
+	}
+
+	void setName() {
+		cout << "Введите Имя Фамилию Отчество студента через пробел\n>> ";
+		cin >> this->name;
+		cin >> this->surname;
+		cin >> this->patronymic;
+	}
+
+	void PrintName() const {
+		cout << this->name << ' ' << this->surname << ' ' << this->patronymic << endl;
+	}
+
+	string GetName() const {
+		return this->name;
+	};
+	string GetSurname() const {
+		return this->surname;
+	};
+	string GetPatronym() const {
+		return this->patronymic;
+	};
+};
 
 
 #endif // !STUDENT_H
