@@ -1,9 +1,7 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
-#include <iostream>
-#include <Windows.h>
-#include <string>
+#include "Marks.h"
 
 
 using namespace std; 
@@ -14,7 +12,7 @@ private:
 	unsigned int month;
 	unsigned int year;
 
-	bool ValidDate(unsigned int day, unsigned int  month, unsigned int year) const {
+	bool ValidDate(unsigned int day, unsigned int  month, unsigned int year) {
 
 		bool IsValid = false;
 
