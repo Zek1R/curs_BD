@@ -1,7 +1,4 @@
-﻿#include <iostream>
-#include <Windows.h>
-#include <string>
-#include "Student.h"
+﻿#include "Student.h"
 
 using namespace std;
 
@@ -17,3 +14,4 @@ int main()
     student1.PrintStudent();
     return 0;
 }
+

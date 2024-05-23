@@ -53,7 +53,7 @@ private:
 			}
 		}
 
-		cout << "Invalid date. Please input correct date.\n";
+		cout << "!! Invalid date. Please input correct date. !!\n";
 		return IsValid;
 	}
 
