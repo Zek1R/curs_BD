@@ -66,9 +66,9 @@ public:
 
 	void setDate(){
 		cout << "Введите дату рождения (через пробел)\n>> ";
-		cin >> day;
-		cin >> month;
-		cin >> year;
+		cin >> this->day;
+		cin >> this->month;
+		cin >> this->year;
 	}
 
 	unsigned int GetDays() const {
