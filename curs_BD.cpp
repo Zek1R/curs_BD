@@ -1,4 +1,4 @@
-﻿#include "Student.h"
+﻿#include "StudentWindow.h"
 
 using namespace std;
 
@@ -8,15 +8,14 @@ int main()
     SetConsoleOutputCP(1251);
     
     
-    Student student;
+    StudentWindow window;
+    
+    bool isrun = true;
+    while (isrun)
+    {
+        isrun = window.StudentCommander();
+    }
 
-    student.SetStudent();
-    student.PrintStudent();
-    student.SetStudentInfo();
-    student.PrintStudent();
- 
-    student.SetSemMark();
-    student.PrintMarks();
-
+  
     return 0;
 }

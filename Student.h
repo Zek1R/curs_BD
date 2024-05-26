@@ -147,7 +147,7 @@ public:
 	Student() {
 		studentName;
 		birthDate;
-		entryYear = 0;
+		entryYear;
 		faculty;
 		cathedra;
 		group;
@@ -229,7 +229,7 @@ public:
 		bool isRun = true;
 		while (isRun) {
 			cout << "Введите что вы хотите изменить\n";
-			cout << "|(1) Год поступления|(2) Институт|(3) Кафедру|\n|(4) Группу|(5) Номер зачётной книжки|(6) Пол|\n>> ";
+			cout << "|(0) - Выход|(1) Год поступления|(2) Институт|(3) Кафедру|\n|(4) Группу|(5) Номер зачётной книжки|(6) Пол|\n>> ";
 			cin >> command;
 
 			switch (command) {
@@ -246,7 +246,7 @@ public:
 				SetGroup();
 				break;
 			case '5':
-					SetStudentID();
+				SetStudentID();
 				break;
 			case '6':
 				SetSex();
@@ -256,6 +256,7 @@ public:
 				break;
 			default:
 				cout << "Неверная команда\n";
+				break;
 			}
 		}
 	}
