@@ -108,7 +108,7 @@ public:
 	}
 
 	void SetName() {
-		cout << "Введите {Имя Фамилию Отчество} студента (через пробел)\n>> ";
+		cout << "Введите {Фамилию Имя Отчество} студента (через пробел)\n>> ";
 		cin >> this->name;
 		cin >> this->surname;
 		cin >> this->patronymic;
@@ -140,38 +140,125 @@ private:
 	string group;
 	string studentID;
 	char sex;
+	SemMark semMark;
+	bool semInit;
 
 public:
 	Student() {
+		studentName;
+		birthDate;
+		entryYear = 0;
+		faculty;
+		cathedra;
+		group;
+		studentID;
+		sex = ' ';
+		semMark;
+		semInit = false;
+
+	}
+
+	void SetStudent() {
 		studentName.SetName();
 		birthDate.SetDate();
+		semMark;
+	}
+
+	void SetEntryYear() {
 		cout << "Введите год поступления\n>> ";
 		cin >> entryYear;
+	}
+
+	void SetFaculty() {
 		cout << "Введите институт\n>> ";
 		cin >> faculty;
+	}
+
+	void SetCathedra() {
 		cout << "Введите кафедру (Например: КБ-2)\n>> ";
 		cin >> cathedra;
+	}
+
+	void SetGroup() {
 		cout << "Введите группу (Например: БИСО-01-23)\n>> ";
 		cin >> group;
+	}
+
+	void SetStudentID() {
 		cout << "Введите номер зачётной книжки\n>> ";
-		cin >> studentID;;
+		cin >> studentID;
+	}
+
+	void SetSex() {
 		cout << "Введите пол (М / Ж)\n>> ";
 		cin >> sex;
 	}
 
-
 	void PrintStudent() const {
+		for (int i = 0; i < 80; i++) cout << '-';
 		cout << endl;
 		studentName.PrintName();
 		birthDate.PrintDate();
-		cout << "Институт - " << faculty << endl;
-		cout << "Кафедра - " << cathedra << endl;
-		cout << "Группа - " << group << endl;
-		cout << "Номер зачётки - " << studentID << endl;
-		cout << "Пол - " << sex << endl;
-		
+		cout << "Год поступления - " << this->entryYear << endl;
+		cout << "Институт - " << this->faculty << endl;
+		cout << "Кафедра - " << this->cathedra << endl;
+		cout << "Группа - " << this->group << endl;
+		cout << "Номер зачётки - " << this->studentID << endl;
+		cout << "Пол - " << this->sex << endl;
+		for (int i = 0; i < 80; i++) cout << '-';
+		cout << endl;
 	}
 
+	void SetSemMark() {
+		semMark.SetSem();
+		semInit = true;
+
+	}
+
+	void PrintMarks() {
+		if (semInit == true){
+			semMark.PrintSem();
+		}
+		else {
+			cout << "Таблица не заполнена.";
+		}
+	}
+	
+	void SetStudentInfo() {
+		char command = ' ';
+		bool isRun = true;
+		while (isRun) {
+			cout << "Введите что вы хотите изменить\n";
+			cout << "|(1) Год поступления|(2) Институт|(3) Кафедру|\n|(4) Группу|(5) Номер зачётной книжки|(6) Пол|\n>> ";
+			cin >> command;
+
+			switch (command) {
+			case '1':
+				SetEntryYear();
+				break;
+			case '2':
+				SetFaculty();
+				break;
+			case '3':
+				SetCathedra();
+				break;
+			case '4':
+				SetGroup();
+				break;
+			case '5':
+					SetStudentID();
+				break;
+			case '6':
+				SetSex();
+				break;
+			case '0':
+				isRun = false;
+				break;
+			default:
+				cout << "Неверная команда\n";
+			}
+		}
+	}
 };
 
 #endif // !STUDENT_H

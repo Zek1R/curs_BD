@@ -18,13 +18,14 @@ private:
 			return true;
 		}
 		else {
+			cout << "|Ошибка ввода оценки|";
 			return false;
 		}
 	}
 public:
 	Mark() {
-		subject = "";
-		mark = 'c';
+		string subject;
+		mark = '-';
 	}
 
 	void SetMark() {
@@ -60,24 +61,28 @@ public:
 };
 
 
-class TableMark {
+class SemMark {
 private:
-	map<string, char> table;
-	short int tableSize;
+	map<string, char> sem;
+	short int size;
 
 public:
-	TableMark() {
-		tableSize = 10;
-		table;
-		for (int i = 0; i < tableSize; i++) {
+	SemMark() {
+		size = 10;
+		sem;
+		
+	}
+
+	void SetSem() {
+		for (int i = 0; i < size; i++) {
 			Mark mark;
 			mark.SetMark();
-			table[mark.GetSubject()] = mark.GetMark();
+			sem[mark.GetSubject()] = mark.GetMark();
 		}
 	}
 
-	void PrintTable() {
-		for (const auto& element : table) {
+	void PrintSem() {
+		for (const auto& element : sem) {
 			cout << element.first << "\t" << element.second << endl;
 		}
 	}

@@ -8,11 +8,15 @@ int main()
     SetConsoleOutputCP(1251);
     
     
-    // Student student1;
-    TableMark table;
+    Student student;
 
-    table.PrintTable();
+    student.SetStudent();
+    student.PrintStudent();
+    student.SetStudentInfo();
+    student.PrintStudent();
  
-    // student1.PrintStudent();
+    student.SetSemMark();
+    student.PrintMarks();
+
     return 0;
 }
