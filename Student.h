@@ -195,8 +195,7 @@ public:
 	}
 
 	void PrintStudent() const {
-		for (int i = 0; i < 80; i++) cout << '-';
-		cout << endl;
+		
 		studentName.PrintName();
 		birthDate.PrintDate();
 		cout << "Год поступления - " << this->entryYear << endl;
@@ -205,7 +204,7 @@ public:
 		cout << "Группа - " << this->group << endl;
 		cout << "Номер зачётки - " << this->studentID << endl;
 		cout << "Пол - " << this->sex << endl;
-		for (int i = 0; i < 80; i++) cout << '-';
+		
 		cout << endl;
 	}
 

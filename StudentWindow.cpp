@@ -4,6 +4,8 @@ StudentWindow::StudentWindow() {
 	precomand = " ";
 	comand = ' ';
 	student;
+	s = " ";
+	
 }
 
 
@@ -28,17 +30,21 @@ bool StudentWindow::StudentCommander() {
 		comand = precomand[0];
 	}
 
-	cout << "--------------------------------------------------------------------\n";
+	cout << "-------------------------------------------------------------------------\n";
 	switch(comand) {
 	case '1':
 		student.SetStudent();
+		cout << "Студент создан\n";
 		break;
 	case '2':
 		student.SetStudentInfo();
+		cout << "Информация сохранена";
 		break;
 	case '3':
 		student.PrintStudent();
-		
+		cout << "Нажмите любую кнопку, чтобы продолжить >> ";
+		cin >> s;
+		s = "";
 		break;
 	case '0':
 		return false;

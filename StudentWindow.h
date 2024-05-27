@@ -9,7 +9,7 @@ private:
 	string precomand;
 	char comand;
 	Student student;
-	
+	string s;
 	bool ValidComand(string comnd);
 
 public:
