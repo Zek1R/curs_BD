@@ -5,21 +5,23 @@
 #include <Windows.h>
 #include <string>
 #include <map>
+#include <vector>
 
 using namespace std;
 
 class Mark {
 private:
 	string subject;
-	char mark;
+	int mark;
 
-	bool ValidMark(char m);
+	bool ValidMark(int m);
+
 public:
 	Mark();
 
 	void SetMark();
 	string GetSubject();
-	char GetMark();
+	int GetMark() const ;
 	void PrintMark();
 };
 
@@ -36,5 +38,23 @@ public:
 	void PrintSem();
 };
 
+
+class Sems {
+private:
+	SemMark all_sems[11];
+	int precomand;
+	int comnd;
+public:
+	Sems();
+
+	void SetSems();
+
+	//void GetSems();
+
+	//void Print_sem();
+	
+	void PrintSems();
+
+};
 
 #endif MARKS_H

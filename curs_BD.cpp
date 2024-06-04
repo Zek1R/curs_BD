@@ -1,4 +1,4 @@
-﻿#include "StudentWindow.h"
+﻿#include "Group.h"
 
 using namespace std;
 
@@ -8,13 +8,9 @@ int main()
     SetConsoleOutputCP(1251);
     
     
-    StudentWindow window;
+    Group group;
     
-    bool isrun = true;
-    while (isrun)
-    {
-        isrun = window.StudentCommander();
-    }
+    group.GroupCommander();
 
   
     return 0;

@@ -21,7 +21,10 @@
     <ClCompile Include="Marks.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="StudentWindow.cpp">
+    <ClCompile Include="Student.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Group.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,7 +35,7 @@
     <ClInclude Include="Student.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="SudentWindow.h">
+    <ClInclude Include="Group.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
