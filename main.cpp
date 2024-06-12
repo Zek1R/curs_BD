@@ -1,4 +1,4 @@
-﻿#include "Group.h"
+﻿#include "App.h"
 
 using namespace std;
 
@@ -8,9 +8,9 @@ int main()
     SetConsoleOutputCP(1251);
     
     
-    Group group;
+    App app;
     
-    group.GroupCommander();
+    app.AppComander();
 
   
     return 0;

@@ -122,7 +122,7 @@ void Name::SetName() {
 	cin.clear();
 	cin.clear();
 	
-	cout << "Введите Фамилию Имя Отчество студента\n\n! Формат 'Иванов Иван Иванович' (через пробел)\n\n>> ";
+	cout << "Введите Фамилию Имя Отчество студента\n\nПример: Иванов Иван Иванович (через пробел)\n\n>> ";
 	cin >> this->name;
 	cin >> this->surname;
 	cin >> this->patronymic;
@@ -164,11 +164,13 @@ Student::Student() {
 	comand = ' ';
 	}
 
-void Student::SetStudent() {
+void Student::SetStudent(string g) {
+	group = g;
 	studentName.SetName();
 	cout << endl;
 	bool d_valid = false;
 	while (d_valid != true) { d_valid = birthDate.SetDate(); }
+
 	studInit = true;
 }
 
@@ -248,7 +250,8 @@ void Student::SetStudentInfo() {
 		cout << "\033[2J\033[1;1H";
 		PrintStudent();
 		cout << "Введите что вы хотите изменить\n";
-		cout << "|(1) Год поступления       |\n|(2) Институт              |\n|(3) Кафедру               |\n|(4) Группу                |\n|(5) Номер зачётной книжки |\n|(6) Пол                   |\n|(0) Выход                 |\n\n>> ";
+		cout << "|(1) Год поступления       |\n|(2) Институт              |"
+			"\n | (3) Кафедру | \n | (4) Группу | \n | (5) Номер зачётной книжки | \n | (6) Пол | \n | (0) Выход | \n\n >> ";
 		
 		cin >> command;
 

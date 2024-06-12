@@ -68,7 +68,7 @@ private:
 public:
 	Student();
 
-	void SetStudent();
+	void SetStudent(string g);
 
 	void SetEntryYear();
 

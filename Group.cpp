@@ -2,9 +2,14 @@
 
 char Group::Comand() {
 	string c;
-	cout << "Введите команду\n";
-	cout << "--------------------------" << endl;
-	cout << "(1) Добавить студента\n(2) Изменить студента\n(3) Удалить студента\n(0) - Выход\n\n>> ";
+	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+		"Введите команду\n\n"
+		"(1) - Добавить студента\n"
+		"(2) - Изменить студента\n"
+		"(3) - Удалить студента\n"
+		"(0) - Вернуться к списку групп\n"
+		"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n"
+		">> ";
 	cin >> c;
 	if ((c == "0") || (c == "1") || (c == "2") || (c == "3")) {
 		return c[0];
@@ -17,24 +22,40 @@ char Group::Comand() {
 	}
 }
 
+
 Group::Group() {
+	group_name;
 	student;
 	students;
 	comand;
 	student_count = 0;
 }
 
+
+void Group::SetGroup() {
+	string n;
+	cout << "Введите название группы\n\n>> ";
+	cin >> this->group_name;
+}
+
+
+string Group::GetName() const{
+	return this->group_name;
+}
+
+
 void Group::AddStudent() {
-	if (this->student_count <= 35) {
-		cout << "\033[2J\033[1;1H";
-		student.SetStudent();
+	if (student_count <= 35) {
+		student.SetStudent(group_name);
 		students.push_back(this->student);
-		this->student_count = this->student_count + 1;
+		student_count += 1;
+		cout << "\033[2J\033[1;1H";
 	}
 	else {
 		cout << "Больше студентов не добавить" << endl;
 	}
 }
+
 
 void Group::PrintGroup() const {
 	if (this->student_count > 0) {
@@ -48,6 +69,7 @@ void Group::PrintGroup() const {
 		cout << "------ В группе нет ни одного студента ------" << endl << endl;
 	}
 }
+
 
 void Group::EditStudent() {
 	short int stud_id;
@@ -65,6 +87,7 @@ void Group::EditStudent() {
 		cout << "\033[2J\033[1;1H";
 	}
 }
+
 
 void Group::DeleteStudent() {
 	short int stud_id;
