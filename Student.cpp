@@ -112,9 +112,9 @@ void Date::PrintDate() const {
 // class Name
 
 Name::Name() {
-	name = "";
-	surname = "";
-	patronymic = "";
+	name = " ";
+	surname = " ";
+	patronymic = " ";
 }
 
 void Name::SetName() {
@@ -122,7 +122,9 @@ void Name::SetName() {
 	cin.clear();
 	cin.clear();
 	
-	cout << "Введите Фамилию Имя Отчество студента\n\nПример: Иванов Иван Иванович (через пробел)\n\n>> ";
+	cout << "\nВведите ФИО студента\n\n"
+		"Пример: Иванов Иван Иванович(через пробел)\n\n >> ";
+
 	cin >> this->name;
 	cin >> this->surname;
 	cin >> this->patronymic;
@@ -152,12 +154,12 @@ void Name::PrintName() const {
 Student::Student() {
 	studentName;
 	birthDate;
-	entryYear = 0;
-	faculty;
-	cathedra;
-	group;
-	studentID;
-	sex = '\b';
+	entryYear = 2023;
+	faculty = " ";
+	cathedra = " ";
+	group = " ";
+	studentID = " ";
+	sex = ' ';
 	studInit = false;
 	sems;
 	semInit = false;
@@ -175,22 +177,22 @@ void Student::SetStudent(string g) {
 }
 
 void Student::SetEntryYear() {
-	cout << "Введите год поступления\n>> ";
+	cout << "\nВведите год поступления\n>> ";
 	cin >> this->entryYear;
 }
 
 void Student::SetFaculty() {
-	cout << "Введите институт\n>> ";
+	cout << "\nВведите институт\n>> ";
 	cin >> this->faculty;
 }
 
 void Student::SetCathedra() {
-	cout << "Введите кафедру (Например: КБ-2)\n>> ";
+	cout << "\nВведите кафедру (Например: КБ-2)\n>> ";
 	cin >> this->cathedra;
 }
 
 void Student::SetGroup() {
-	cout << "Введите группу (Например: БИСО-01-23)\n>> ";
+	cout << "\nВведите группу (Например: БИСО-01-23)\n>> ";
 	cin >> this->group;
 }
 
@@ -247,11 +249,16 @@ void Student::SetStudentInfo() {
 	char command = ' ';
 	bool isRun = true;
 	while (isRun) {
-		cout << "\033[2J\033[1;1H";
+		
 		PrintStudent();
-		cout << "Введите что вы хотите изменить\n";
-		cout << "|(1) Год поступления       |\n|(2) Институт              |"
-			"\n | (3) Кафедру | \n | (4) Группу | \n | (5) Номер зачётной книжки | \n | (6) Пол | \n | (0) Выход | \n\n >> ";
+		cout << "Введите что вы хотите изменить\n\n";
+			"| 1 Год поступления       |\n"
+			"| 2 Институт              |\n"
+			"| 3 Кафедру               |\n"
+			"| 4 Группу                |\n"
+			"| 5 Номер зачётной книжки |\n"
+			"| 6 Пол                   |\n"
+			"| 0 Выход                 |\n\n>> ";
 		
 		cin >> command;
 
@@ -302,10 +309,14 @@ void Student::StudentCommander() {
 
 	while (run) {
 
-		cout << "\033[2J\033[1;1H";
+		
 		PrintStudent();
-		cout << "Введите команду\n\n";
-		cout << "| 1 - инфо           |\n| 2 - задать оценки  |\n| 3 - вывести оценки |\n| 0 - выход          |\n\n>> ";
+		cout << "Введите команду\n\n"
+			"| 1 - инфо           |\n"
+			"| 2 - задать оценки  |\n"
+			"| 3 - вывести оценки |\n" 
+			"| 0 - выход          |\n\n >> ";
+
 		string precomand;
 		cin >> precomand;
 		if (ValidComand(precomand)) {
@@ -315,16 +326,13 @@ void Student::StudentCommander() {
 
 		switch (comand) {
 		case '1':
-			cout << "\033[2J\033[1;1H";
 			SetStudentInfo();
 			cout << "Информация сохранена";
 			break;
 		case '2':
-			cout << "\033[2J\033[1;1H";
 			SetMarks();
 			break;
 		case '3':
-			cout << "\033[2J\033[1;1H";
 			PrintMarks();
 			cout << "Нажмите любую кнопку, чтобы продолжить >> ";
 			cin >> s;
@@ -339,3 +347,48 @@ void Student::StudentCommander() {
 		}
 	}
 }
+
+
+
+
+
+
+void Student::StudentWriter(string path) {
+	ofstream f_buf_out;
+
+	f_buf_out.open(path, iostream::app);
+
+	if (!f_buf_out.is_open()) {
+		cout << "Ошибка" << endl;
+	}
+	else {
+		f_buf_out << this->studentName.GetName() << "|" << this->studentName.GetSurname() << "|" << this->studentName.GetPatronym() << "|";
+		f_buf_out << this->birthDate.GetDays() << "|" << this->birthDate.GetMonths() << "|" << this->birthDate.GetYears() << "|";
+		f_buf_out << this->GetEntryYear() << "|";
+		f_buf_out << this->GetFaculty() << "|";
+		f_buf_out << this->GetCathedra() << "|";
+		f_buf_out << this->GetGroup() << "|";
+		f_buf_out << this->GetStudentID() << "|";
+		f_buf_out << this->GetSex() << " ";
+		f_buf_out << "|" << endl;
+	}
+	f_buf_out.close();
+}
+
+
+// void Student::StudentReader(st buf_student) {
+	// studentName.FSetName(buf_student.studentName.GetName());
+	// studentName.FSetSurname(buf_student.studentName.GetSurname());
+	// studentName.FSetPatronymic(buf_student.studentName.GetPatronym());
+
+	// birthDate.SetDay(buf_student.birthDate.GetDays());
+	// birthDate.SetMonth(buf_student.birthDate.GetMonths());
+	// birthDate.SetYear(buf_student.birthDate.GetYears());
+
+	// entryYear = buf_student.entryYear;
+	// faculty = buf_student.faculty;
+	// cathedra = buf_student.cathedra;
+	// group = buf_student.group;
+	// studentID = buf_student.studentID;
+	// sex = buf_student.sex;
+// }

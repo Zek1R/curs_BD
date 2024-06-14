@@ -21,19 +21,23 @@ Mark::Mark()
 
 void Mark::SetMark() 
 {
-	int m;
-	cout << "Введите название предмета\n>> ";
-	cin >> this->subject;
+	int sem_cnt = 0;
+	cout << "\nВведите количество предметов >> ";
+	cin >> sem_cnt;
 
-	bool v = false;
-	while (v != true) {
-		cout << "Введите оценку (1-5)\n>> ";
-		cin >> m;
+	for (int i = 0; i < sem_cnt; i++) {
+		int m;
+		cout << "Введите название предмета\n>> ";
+		cin >> subject;
 
-		v = ValidMark(m);
+		while (true) {
+			cout << "Введите оценку (1-5)\n>> ";
+			cin >> m;
 
-		if (v == true) {
-			mark = m;
+			if (ValidMark(m)) {
+				mark = m;
+				break;
+			}
 		}
 	}
 }
@@ -80,9 +84,9 @@ Sems::Sems() {
 }
 
 void Sems::SetSems() {
-	cout << "Введите номер семестра (1 - 11) >> ";
+	cout << "\nВведите номер семестра (1 - 11) >> ";
 	cin >> precomand;
-	if ((precomand == 0) || (precomand == 1) || (precomand == 2) || (precomand == 3) || (precomand == 4) || (precomand == 5) || (precomand == 6) || (precomand == 7) || (precomand == 8) || (precomand == 9) || (precomand == 10) || (precomand == 11)) {
+	if ((precomand == 1) || (precomand == 2) || (precomand == 3) || (precomand == 4) || (precomand == 5) || (precomand == 6) || (precomand == 7) || (precomand == 8) || (precomand == 9) || (precomand == 10) || (precomand == 11)) {
 		comnd = precomand;
 	}
 	else {
@@ -133,7 +137,7 @@ void Sems::SetSems() {
 void Sems::PrintSems() {
 	cout << "Введите номер семестра который хотите вывести (1 - 11) >> ";
 	cin >> comnd;
-	if ((comnd == 0) || (comnd == 1) || (comnd == 2) || (comnd == 3) || (comnd == 4) || (comnd == 5) || (comnd == 6) || (comnd == 7) || (comnd == 8) || (comnd == 9) || (comnd == 10) || (comnd == 11)) {
+	if ((comnd == 1) || (comnd == 2) || (comnd == 3) || (comnd == 4) || (comnd == 5) || (comnd == 6) || (comnd == 7) || (comnd == 8) || (comnd == 9) || (comnd == 10) || (comnd == 11)) {
 		comnd = comnd;
 	}
 	else {

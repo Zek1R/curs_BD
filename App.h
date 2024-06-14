@@ -18,6 +18,8 @@ public:
 	void PrintGroups() const;
 	void AppComander();
 
+	void GroupsWriter();
+	void GroupsReader();
 
 };
 

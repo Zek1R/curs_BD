@@ -34,7 +34,7 @@ void App::ChooseGroup() {
 
 	if (group_id <= groups_count && group_id > 0) {
 		cout << "\033[2J\033[1;1H";
-		groups[group_id - 1].GroupCommander();
+		groups[group_id - 1].GroupComander();
 	}
 	else {
 		cout << "Такой группы нет\n";
@@ -67,7 +67,7 @@ void App::PrintGroups() const {
 		cout << "------ Список групп ------" << endl << endl;
 		for (int i = 0; i < this->groups_count; i++) {
 			std::cout << i + 1 << " - ";
-			cout << groups[i].GetName() << endl;
+			cout << groups[i].GetNameGroup() << endl;
 		}
 	}
 	else {
@@ -78,6 +78,7 @@ void App::PrintGroups() const {
 
 
 void App::AppComander() {
+
 	bool run = true;
 	string precomand;
 	while (run) {
@@ -85,10 +86,10 @@ void App::AppComander() {
 
 		cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 			"Введите команду\n\n"
-			"(1) - добавить группу\n"
-			"(2) - перейти к группе\n"
-			"(3) - удалить к группе\n"
-			"(0) - Выход\n"
+			" 1 - добавить группу\n"
+			" 2 - перейти к группе\n"
+			" 3 - удалить к группе\n"
+			" 0 - Выход\n"
 			"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 			"\n\n>>  ";
 		
@@ -108,6 +109,7 @@ void App::AppComander() {
 			DeleteGroup();
 			break;
 		case 0:
+			GroupsWriter();
 			run = false;
 			break;
 		default:
@@ -119,4 +121,67 @@ void App::AppComander() {
 }
 
 
+void App::GroupsWriter() {
+	ofstream groups_out;
+	groups_out.open("GROUPS.txt");
+	if (!groups_out.is_open()) {
+		cout << "Ошибка ";
+	}
+	else {
+		groups_out << this->groups_count << endl;
+		for (int i = 0; i < groups_count; i++) {
+			gr buf_group;
 
+			buf_group.name = groups[i].GetNameGroup();
+			buf_group.st_cnt = groups[i].GetStudCount();
+
+			groups_out << buf_group.name << " " << buf_group.st_cnt << endl;
+		}
+	}
+	groups_out.close();
+}
+
+
+void App::GroupsReader() {
+	ifstream groups_in;
+
+	groups_in.open("GROUPS.txt");
+	if (!groups_in.is_open()) {
+		cout << "Ошибка\n";
+	}
+	else {
+		vector<gr> buf_groups;
+		string line;
+		getline(groups_in, line, '\n');
+		istringstream iss(line, istringstream::in);
+		int gr_cnt = 0;
+		iss >> gr_cnt;
+
+		int i = 0;
+		while (getline(groups_in, line, '\n')) {
+			gr buf_gr;
+
+			buf_gr.name = line;
+
+			istringstream iss(line, istringstream::in);
+
+			int val;
+			iss >> val;
+			buf_gr.st_cnt = val;
+
+			buf_groups.push_back(buf_gr);
+			i++;
+		}
+
+		this->groups_count = gr_cnt;
+		
+		for (int i = 0; i < groups_count; i++) {
+			
+			
+			
+		}
+	}
+	groups_in.close();
+
+
+}
